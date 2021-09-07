@@ -97,6 +97,12 @@ def brief():
     print('따로 봐야 할 것 {}개: \n'.format(len(feature_extra)),feature_extra,'\n')
     print('삭제할 것 {}개: \n'.format(len(feature_del)),feature_del,'\n')
 
+def price_cor(feature):
+    '''
+    feature와 집값 사이의 상관계수를 반환
+    '''
+    return round(float(pd.DataFrame(train.corr()['SalePrice']).loc[feature]),3)
+
 ### feature 분류
 feature_raw = []
 feature_dis = []
