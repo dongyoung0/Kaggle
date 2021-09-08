@@ -99,8 +99,9 @@ def brief():
 
 def price_cor(feature):
     '''
-    feature와 집값 사이의 상관계수를 반환
+    feature와 집값 사이의 상관계수를 프린트하고 반환
     '''
+    print(round(float(pd.DataFrame(train.corr()['SalePrice']).loc[feature]),3))
     return round(float(pd.DataFrame(train.corr()['SalePrice']).loc[feature]),3)
 
 def onehot(df, columns_list):
