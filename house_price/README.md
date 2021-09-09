@@ -22,8 +22,8 @@
 
 ### Data Preprocessing
 - Handling our datas according to our classification
-- numeric(raw) : Normalization
-- discrete : 
+- numeric(raw) : correlation, VIF checking / Normalization
+- discrete : correlation, VIF checking
 - mapping : consider that our order is meaningful?
 - one-hot : Use one-hot encoding. 
 
