@@ -1,10 +1,10 @@
 # Kaggle
 
-## Practice kaggle
-Kaggle Practice..
+## Titanic
+- Random-Forest
+- result : 0.8112
 
-
-
-Kaggle Practice를 Practice kaggle로 바꾸고
-
-Practice kaggle을 Kaggle Practice로 바꿈
+## House price prediction
+- RandomForestRegressor
+- XGBoost
+- result : 0.1373
