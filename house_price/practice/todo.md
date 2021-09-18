@@ -1,4 +1,4 @@
-# EDA
+# To do
 ## Visualization
 1. Price, log to remove skewness
 3. Corr, VIFmfor numeric datas, ordinal datas
