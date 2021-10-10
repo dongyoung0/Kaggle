@@ -4,31 +4,35 @@
 
 ### Feature classification
 - 80개의 Feature들을 아래 기준에 따라 6가지 카테고리로 분류.
-- 분류 후, 각 카테고리별로 알맞는 방법으로 전처리를 할 예정.
-- 결측치 / 이상치(Outlier)처리 방법. 특히 이상치를 어떻게 처리할지에 대한 고민.
+- 분류 후, 각 카테고리별로 알맞는 방법으로 전처리
 
 #### Numeric data (숫자형 데이터)
 - numeric(raw) : real valued data (ex. area, length...)
   - Scaling을 해주고 넣어 줄 예정
   - 넓이 데이터들의 경우 겹치는 데이터 / 서로 depend하는 데이터가 많은데 처리 할 방법 고민.
+  - VIF로 다중공선성 고려
 
 - discrete : discrete values (ex. number of rooms)
   - 년도 등의 값은 scaling을 해주고 정수 값으로 넣어 줄 예정
   - 아래 순서를 가진 범주형 데이터와 마찬가지로 one-hot을 하는게 더 좋을지?
+  - one-hot이 대체로 좋은 성능을 냄
 
 #### Categorical data (범주형 데이터)
 - feature_map : 순서를 가진 데이터 (Ex. Quality : Excellent->Good->Fair->Poor)
   - 순서 혹은 가격과의 상관관계를 보고 0,1,2,3,4 등 정수값으로 매핑해 줄 예정
   - 그냥 one-hot을 하는게 성능이 더 좋을지? 에 대한 고민.
+  - one-hot이 대체로 좋은 성능을 냄
 
 - feature_onehot : 데이터간의 순서/관계를 찾기 힘든 데이터 (ex. SaleType)
-  - One-hot encoding을 할 예정
+  - One-hot encoding
   - 이때 개수가 적은 값들의 경우 drop. (one-hot column에 1의 값이 아주 적은 경우)
 
 #### Others
 - extra : data that need discussion
   - 어느 분류에 들어갈지 모호하거나, 같은 분류내의 데이터들과 다른 방식의 전처리가 필요하다고 생각되는 feature
-
+  - 'neighbor', 'MoSold'는 one-hot encoding
+  - 'YearBuilt', 'YearRemodAdd', 'YrSold'의 경우 ${YearBuilt+YearRemodAdd \over 2} - YrSold$로 계산
+  
 - delete : need to delete
   - 값의 개수가 적거나 / 결측치가 많거나 / 가격과의 상관관계가 매우 낮거나 / 등등의 이유로 지워 줄 feature
 
@@ -54,11 +58,3 @@ We will use Scikit-learn (maybe)
 ## Evaluating
 - Evaluation standard : RMSLE
 - Use K-fold validation to evaluate our model
-
-### Ensemble
-- XGBoost / LightGBM 등을 각각 K-fold validation을 통해 fit하고 예측값을 얻을 것임.
-
-- 그 후 각 예측값들을 합쳐서(ensemble) 더 좋은 예측값을 기대.
-
-  
-
