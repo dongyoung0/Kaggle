@@ -24,7 +24,7 @@ https://dacon.io/competitions/open/235597/
 - baseline 코드 그대로~
 
 ## Submission
-|날짜|파일명|점수|내용|
-|------|---|---|------|
-|21/10/11|Sub1.csv|0| 제출 파일 실수로 인해서 0점
-|21/10/11|Sub2.csv|**0.8376**|baseline 코드 그대로 따라가서 제출. </br> 결과 제출시에 tensorflow 버전 문제인지, model.predict_classes가 작동을 안함. </br> y_pred = model.predict(X_test)로 (5000,3)의 array를 구한 후, argmax를 사용해서 각 행마다 값이 가장 큰 인덱스를 반환.
+|날짜|파일명|점수|전처리|모델|내용|
+|-----|---|---|------|---|------|
+|21/10/11|Sub1.csv|0|Okt|LSTM| 제출 파일 실수로 인해서 0점
+|21/10/11|Sub2.csv|**0.8376**|Okt|LSTM|baseline 코드 그대로 따라가서 제출. </br> 결과 제출시에 tensorflow 버전 문제인지, model.predict_classes가 작동을 안함. </br> y_pred = model.predict(X_test)로 (5000,3)의 array를 구한 후, argmax를 사용해서 각 행마다 값이 가장 큰 인덱스를 반환.
